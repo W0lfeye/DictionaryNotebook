@@ -18,16 +18,16 @@
 	<ng-template [ngIf]="translateToPrimary != null">
 		<ion-item>
 			<ion-label>{{translateToPrimary ? secondaryLanguage : primaryLanguage}}</ion-label>
-			<ion-input readonly="{{translateToPrimary}}">{{translateFrom}}</ion-input>
+			<ion-input readonly="{{translateToPrimary}}" [(ngModel)]="translateFrom"></ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label>{{!translateToPrimary ? secondaryLanguage : primaryLanguage}}</ion-label>
-			<ion-input readonly="{{!translateToPrimary}}">{{translateTo}}</ion-input>
+			<ion-input readonly="{{!translateToPrimary}}" [(ngModel)]="translateTo"></ion-input>
 		</ion-item>
 		
 		<ion-list>
 			<ion-button (click)="testWord()">Test word</ion-button>
-			<ion-input readonly *ngIf="!answerIsValid">{{selectedWord[primaryLanguage]}}</ion-input>
+			<ion-label *ngIf="!answerIsValid">{{selectedWord[primaryLanguage]}}</ion-label>
 		</ion-list>
 	</ng-template>
 </ion-content>
