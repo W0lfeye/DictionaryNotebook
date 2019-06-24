@@ -8,5 +8,26 @@
 </ion-header>
 
 <ion-content>
-
+	<ion-list>
+		<ion-select [(ngModel)]="primaryLanguage" placeholder="select language" interface="popover">
+			<ion-select-option *ngFor="let language of languages">{{language}}</ion-select-option>
+		</ion-select>
+		<ion-button (click)="getWord()">Get word</ion-button>
+	</ion-list>
+	
+	<ng-template [ngIf]="translateToPrimary != null">
+		<ion-item>
+			<ion-label>{{translateToPrimary ? secondaryLanguage : primaryLanguage}}</ion-label>
+			<ion-input readonly="{{translateToPrimary}}">{{translateFrom}}</ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>{{!translateToPrimary ? secondaryLanguage : primaryLanguage}}</ion-label>
+			<ion-input readonly="{{!translateToPrimary}}">{{translateTo}}</ion-input>
+		</ion-item>
+		
+		<ion-list>
+			<ion-button (click)="testWord()">Test word</ion-button>
+			<ion-input readonly *ngIf="!answerIsValid">{{selectedWord[primaryLanguage]}}</ion-input>
+		</ion-list>
+	</ng-template>
 </ion-content>
