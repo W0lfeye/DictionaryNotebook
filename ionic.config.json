@@ -1,5 +1,7 @@
 {
   "name": "DictionaryNotebook",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
