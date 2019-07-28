@@ -8,6 +8,7 @@ import * as papa from 'papaparse'
 })
 export class DictionaryTestPage implements OnInit {
 	csvData: any[] = [];
+	selectedLanguage: string = '';
 	
   constructor() { }
 
@@ -19,4 +20,6 @@ export class DictionaryTestPage implements OnInit {
 		  complete: (result) => {this.csvData = result.data}
 		})
   }
+  
+  
 }
